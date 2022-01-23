@@ -1,0 +1,31 @@
+First of all, I would like to say thanks for this task. It was quite a tricky one. I was hoping the task would be something where I need to create backend API along with all configurations and use it in the frontend, fix the problem in the project, etc.
+
+
+However, I still tried to continue these tasks and take it as a challenge and I'm gonna describe to you what I have tried.
+
+
+I created an AWS RDS MariaDB instance connect it to MySQL workbench and import the table.sql file into it.
+
+
+After that, I performed Github actions using the main.yml with every push, Github actions will automatically deploy my index.js file to AWS lambda function.
+
+
+In the index.js file, I used some npm packages, aws-sdk to configure AWS, Knex to query the database after connecting to database
+
+
+Destructuring the body and params and use it as query.
+
+
+All others files and folders except index.js (which has the lambda function), I created just for checking and for fun!
+
+
+If you want to lambda functions, RDS instance, we can go over with that on a video call!
+
+
+I would say, if the task would be related to creating backend API and interacting it with the frontend, I would definitely complete my task.
+
+
+If you want to test me out with that I'm ready also can share the projects that I have done with you
+
+
+Thanks you!
