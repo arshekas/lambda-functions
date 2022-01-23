@@ -1,32 +1,32 @@
-// import * as AWS from 'aws-sdk';
+import * as AWS from 'aws-sdk';
 import {
   APIGatewayProxyEvent,
   APIGatewayProxyResultV2,
   Handler,
 } from 'aws-lambda';
 
-// import * as Knex from 'Knex';
+import * as Knex from 'Knex';
 import * as _ from 'lodash';
-// AWS.config.update({ region: 'ca-central-1' });
+AWS.config.update({ region: 'ca-central-1' });
 
-// const host = 'xenum.cdhd2xlqunl4.ca-central-1.rds.amazonaws.com';
-// const user = 'admin';
-// const password = 'Holiday-21';
-// const database = 'xenum';
+const host = 'xenum.cdhd2xlqunl4.ca-central-1.rds.amazonaws.com';
+const user = 'admin';
+const password = 'Holiday-21';
+const database = 'xenum';
 
-// const connection = {
-//   ssl: { rejectUnauthorized: false },
-//   host,
-//   user,
-//   password,
-//   database,
-// };
+const connection = {
+  ssl: { rejectUnauthorized: false },
+  host,
+  user,
+  password,
+  database,
+};
 
 // create connection
-// const Knex = Knex({
-//   client: 'mysql',
-//   connection,
-// });
+const Knex = knex({
+  client: 'mysql',
+  connection,
+});
 let count = 0;
 // Format of the response from this API call.
 const response = {
@@ -53,19 +53,12 @@ async function processRequest(events) {
 export const handler: Handler = async (
   event: APIGatewayProxyEvent
 ): Promise<APIGatewayProxyResultV2> => {
-  const max = 10;
-  const val = _.random(max);
-  const response = {
-    statusCode: 200,
-    body: JSON.stringify(`The random value is ${val}`),
-  };
-  return response;
-  // try {
-  //   count++;
-  //   const res = await Knex('vals').select();
-  //   console.log('index.js ~ 51 res', res);
-  // } catch (err) {}
-  // return processRequest(events);
+  try {
+    count++;
+    const res = await Knex('vals').select();
+    console.log('index.js ~ 51 res', res);
+  } catch (err) {}
+  return processRequest(event);
 };
 
 /*Test
