@@ -6,7 +6,6 @@ import {
   Context,
 } from 'aws-lambda';
 
-import * as Knex from 'knex';
 import * as _ from 'lodash';
 AWS.config.update({ region: 'ca-central-1' });
 
@@ -24,7 +23,7 @@ const connection = {
 };
 
 // create connection
-const knex = Knex({
+const knex = require('knex')({
   client: 'mysql',
   connection,
 });
