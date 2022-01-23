@@ -3,6 +3,7 @@ import {
   APIGatewayProxyEvent,
   APIGatewayProxyResultV2,
   Handler,
+  Context,
 } from 'aws-lambda';
 
 import * as Knex from 'Knex';
@@ -23,7 +24,7 @@ const connection = {
 };
 
 // create connection
-const Knex = knex({
+const knex = Knex({
   client: 'mysql',
   connection,
 });
@@ -55,7 +56,7 @@ export const handler: Handler = async (
 ): Promise<APIGatewayProxyResultV2> => {
   try {
     count++;
-    const res = await Knex('vals').select();
+    const res = await knex('vals').select();
     console.log('index.js ~ 51 res', res);
   } catch (err) {}
   return processRequest(event);
