@@ -17,7 +17,8 @@
     "knex": "^1.0.1",
     "lodash": "^4.17.21",
     "mysql": "^2.18.1",
-    "ora": "^6.0.1"
+    "ora": "^6.0.1",
+    "typescript": "^4.5.5"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.91",

@@ -1,32 +1,32 @@
-import * as AWS from 'aws-sdk';
+// import * as AWS from 'aws-sdk';
 import {
-  context,
   APIGatewayProxyEvent,
   APIGatewayProxyResultV2,
   Handler,
-} from 'aws-lamda';
-import * as Knex from 'Knex';
+} from 'aws-lambda';
+
+// import * as Knex from 'Knex';
 import * as _ from 'lodash';
-AWS.config.update({ region: 'ca-central-1' });
+// AWS.config.update({ region: 'ca-central-1' });
 
-const host = 'xenum.cdhd2xlqunl4.ca-central-1.rds.amazonaws.com';
-const user = 'admin';
-const password = 'Holiday-21';
-const database = 'xenum';
+// const host = 'xenum.cdhd2xlqunl4.ca-central-1.rds.amazonaws.com';
+// const user = 'admin';
+// const password = 'Holiday-21';
+// const database = 'xenum';
 
-const connection = {
-  ssl: { rejectUnauthorized: false },
-  host,
-  user,
-  password,
-  database,
-};
+// const connection = {
+//   ssl: { rejectUnauthorized: false },
+//   host,
+//   user,
+//   password,
+//   database,
+// };
 
 // create connection
-const Knex = Knex({
-  client: 'mysql',
-  connection,
-});
+// const Knex = Knex({
+//   client: 'mysql',
+//   connection,
+// });
 let count = 0;
 // Format of the response from this API call.
 const response = {
