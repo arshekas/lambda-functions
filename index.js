@@ -7,6 +7,7 @@ import {
 } from 'aws-lambda';
 
 import * as _ from 'lodash';
+
 AWS.config.update({ region: 'ca-central-1' });
 
 const host = 'xenum.cdhd2xlqunl4.ca-central-1.rds.amazonaws.com';
@@ -22,12 +23,12 @@ const connection = {
   database,
 };
 
-// create connection
+// SQL query builder for MariaDB, MySql
 const knex = require('knex')({
   client: 'mysql',
   connection,
 });
-let count = 0;
+
 // Format of the response from this API call.
 const response = {
   isBase64Encoded: false,
@@ -40,6 +41,12 @@ const response = {
 
 async function processRequest(events) {
   try {
+    const { rank } = events.body;
+    const { limit } = events.params;
+    const response = await knex('users')
+      .select('*')
+      .orderBy(rank, 'desc')
+      .limit(limit);
     return response;
   } catch (error) {
     console.log(error);
@@ -50,14 +57,7 @@ async function processRequest(events) {
 }
 
 // Lambda's entry-point with environment validation logic.
-export const handler: Handler = async (
-  event: APIGatewayProxyEvent
-): Promise<APIGatewayProxyResultV2> => {
-  try {
-    count++;
-    const res = await knex('vals').select();
-    console.log('index.js ~ 51 res', res);
-  } catch (err) {}
+export const handler = async (event) => {
   return processRequest(event);
 };
 
