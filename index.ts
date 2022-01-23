@@ -6,7 +6,7 @@ import {
   Context,
 } from 'aws-lambda';
 
-import * as Knex from 'Knex';
+import * as Knex from 'knex';
 import * as _ from 'lodash';
 AWS.config.update({ region: 'ca-central-1' });
 
