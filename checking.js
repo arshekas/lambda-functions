@@ -1,6 +1,8 @@
 'use strict';
 var mysql = require('mysql');
 
+// * THIS FILE IS FOR JUST CHECKING
+
 var connection = mysql.createConnection({
   host: 'xenum.cdhd2xlqunl4.ca-central-1.rds.amazonaws.com',
   user: 'admin',

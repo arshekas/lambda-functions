@@ -1,4 +1,6 @@
 import * as AWS from 'aws-sdk';
+
+// Imports below for typescript version of this file
 import {
   APIGatewayProxyEvent,
   APIGatewayProxyResultV2,
@@ -41,8 +43,11 @@ const response = {
 
 async function processRequest(events) {
   try {
+    // getting the rank and limit from body
     const { rank } = events.body;
     const { limit } = events.params;
+
+    // return users according to the rank and limit
     const response = await knex('users')
       .select('*')
       .orderBy(rank, 'desc')

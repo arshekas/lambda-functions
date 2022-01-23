@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 
+// * THIS FILE IS FOR JUST TESTING
+
 const app = express();
 
 var corsOptions = {

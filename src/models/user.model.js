@@ -1,5 +1,6 @@
 const sql = require('./db.js');
 
+// * THIS FILE IS FOR JUST TESTING
 // constructor
 const User = function (user) {
   this.username = user.username;
